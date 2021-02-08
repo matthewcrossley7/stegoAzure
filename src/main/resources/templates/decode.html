@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div  th:replace="fragments :: navbar"/>
+<div class="w3-col m6 w3-padding-large">
+    <h1 >Select a file to decode </h1><br>
+    <div th:if="${msg != null}">
+        <p th:text="'The encoded message of ' + ${fileName}+' is: '+${msg}"></p>
+    </div>
+    <form action="#" th:action="@{/decode}"  method="post">
+        <div class="form-group">
+            <input type="file" name="fileName"  class="form-control-file" th:value="${fileName}" accept="image/x-png" >
+        </div>
+
+        <button type="submit" >
+            Click To Decode
+        </button>
+
+           </form>
+</div>
+
+</body>
+</html>
+
